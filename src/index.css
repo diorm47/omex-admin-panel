@@ -1,13 +1,148 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #04070e;
+}
+
+.container {
+  padding: 50px 0;
+}
+
+.container h2 {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.input_item {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #535151;
+  width: 100%;
+}
+
+.input_item p {
+  font-size: 18px;
+  text-align: left;
+  color: #fff;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 10px;
+}
+
+.input_item input[type="number"],
+.input_item input[type="text"],
+.input_item input[type="password"] {
+  width: 200px;
+  height: 40px;
+  border-radius: 6px;
+  padding-left: 10px;
+  font-size: 14px;
+  text-align: left;
+  color: #fff;
+  background: rgb(50, 50, 50);
+  font-weight: 400;
+  outline: none;
+  border: none;
+}
+.input_item input[type="file"] {
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.input_item a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.input_item .input_item {
+  margin-bottom: 10px;
+}
+.input_item .input_item:last-child {
+  border-bottom: 0;
+}
+.input_item .input_item p {
+  font-size: 12px;
+}
+
+.submit_btn {
+  border-radius: 10px;
+  padding: 15px 30px;
+  background: linear-gradient(
+    270deg,
+    rgb(164, 185, 255),
+    rgb(68, 112, 254) 100%
+  );
+  color: rgb(255, 255, 255);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0%;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.login_form {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+.login_form input {
+  width: 100% !important;
+}
+
+.login_form .submit_btn {
+  width: 100%;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.error {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page_wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.page_menu {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+}
+
+.page_menu p {
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  color: #c0bebe;
+  font-weight: 400;
+  line-height: 100%;
+  margin-bottom: 17px;
+}
+
+.page_menu p:hover {
+  text-decoration: underline;
 }

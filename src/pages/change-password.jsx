@@ -48,8 +48,8 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="password_form login_form">
-      <h2>Смена пароля</h2>
+    <div className="password_form input_item">
+      <h2>Change password</h2>
 
       <div className="input_item">
         <p>Старый пароль</p>

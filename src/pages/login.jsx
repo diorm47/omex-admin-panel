@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Login = () => {
+const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -9,13 +9,16 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch("https://omex-backend-production.up.railway.app/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://omex-backend-production.up.railway.app/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -24,7 +27,7 @@ const Login = () => {
       }
 
       sessionStorage.setItem("token", data.token);
-      alert("Успешный вход!");
+
       window.location.reload();
     } catch (err) {
       setError(err.message);
@@ -57,4 +60,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

@@ -92,75 +92,91 @@ function DatasPage() {
 
   return (
     <div className="datas_page">
+      <div className="page_title">
+        <h2>Data change</h2>
+      </div>
       {data ? (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="input_item">
-            <label>
-              <p>Таймер</p>
-            </label>
-            <input type="text" {...register("timer")} required />
+          <div className="datas_3_grid">
+            <div className="input_item">
+              <label>
+                <p>Timer</p>
+              </label>
+              <input type="text" {...register("timer")} required />
+            </div>
+
+            <div className="input_item">
+              <label>
+                <p>Tokenomics (Uploading a file)</p>
+              </label>
+              <input
+                type="file"
+                onChange={(e) => handleFileUpload(e, "tokenomics_link")}
+              />
+              {data.tokenomics_link && (
+                <p>
+                  <a
+                    href={`https://omex-backend-production.up.railway.app${data.tokenomics_link}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download Tokenomics
+                  </a>
+                </p>
+              )}
+            </div>
+
+            <div className="input_item">
+              <label>
+                <p>Whitepaper (Uploading a file)</p>
+              </label>
+              <input
+                type="file"
+                onChange={(e) => handleFileUpload(e, "whitepaper_link")}
+              />
+              {data.whitepaper_link && (
+                <p>
+                  <a
+                    href={`https://omex-backend-production.up.railway.app${data.whitepaper_link}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download Whitepaper
+                  </a>
+                </p>
+              )}
+            </div>
+          </div>
+          <div className="input_item ">
+            <p>Whitepaper text</p>
+            <textarea
+              name=""
+              id=""
+              {...register("whitepaper_text")}
+              required
+            ></textarea>
           </div>
 
-          <div className="input_item">
-            <label>
-              <p>Tokenomics (Загрузка файла)</p>
-            </label>
-            <input
-              type="file"
-              onChange={(e) => handleFileUpload(e, "tokenomics_link")}
-            />
-            {data.tokenomics_link && (
-              <p>
-                <a
-                  href={`https://omex-backend-production.up.railway.app${data.tokenomics_link}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Скачать Tokenomics
-                </a>
-              </p>
-            )}
-          </div>
-
-          <div className="input_item">
-            <label>
-              <p>Whitepaper (Загрузка файла)</p>
-            </label>
-            <input
-              type="file"
-              onChange={(e) => handleFileUpload(e, "whitepaper_link")}
-            />
-            {data.whitepaper_link && (
-              <p>
-                <a
-                  href={`https://omex-backend-production.up.railway.app${data.whitepaper_link}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Скачать Whitepaper
-                </a>
-              </p>
-            )}
-          </div>
-
-          <div className="input_item">
-            <p>Токеномика</p>
-            {Object.keys(data.token).map((key) => (
-              <div key={key} className="input_item">
-                <label>
-                  <p>{tokens[key]} (%)</p>
-                </label>
-                <input type="number" {...register(`token.${key}`)} required />
-              </div>
-            ))}
+          <div className="input_item ">
+            <p>Tokenomics</p>
+            <div className="diagramm_inputs">
+              {Object.keys(data.token).map((key) => (
+                <div key={key} className="input_item">
+                  <label>
+                    <p>{tokens[key]} (%)</p>
+                  </label>
+                  <input type="number" {...register(`token.${key}`)} required />
+                </div>
+              ))}
+            </div>
           </div>
 
           <button type="submit" className="submit_btn">
-            Обновить
+            Update
           </button>
         </form>
       ) : (
-        <p className="loading">Загрузка данных...</p>
+        <p className="loading">Loading data...</p>
       )}
     </div>
   );

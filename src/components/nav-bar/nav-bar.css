@@ -1,0 +1,42 @@
+.nav_wrapper {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav {
+  margin-bottom: 50px;
+}
+.nav_logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav_logo p {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 20px;
+}
+.nav_logo svg {
+  width: 70px;
+}
+
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav_menu p {
+  cursor: pointer;
+  color: #fff;
+}
+
+.nav_menu p:hover {
+  text-decoration: underline;
+}
+
+.nav_menu .active p {
+  text-decoration: underline;
+}

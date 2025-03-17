@@ -21,7 +21,7 @@ const ChangePassword = () => {
       if (!token) throw new Error("Вы не авторизованы");
 
       const response = await fetch(
-        "http://localhost:3001/update-password",
+        "https://omex-backend-production.up.railway.app/update-password",
         {
           method: "PUT",
           headers: {

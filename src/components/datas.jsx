@@ -12,7 +12,9 @@ function DatasPage() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3001/datas");
+      const response = await axios.get(
+        "https://omex-backend-production.up.railway.app/datas"
+      );
       if (response.data.length > 0) {
         const fetchedData = response.data[0];
         setData(fetchedData);
@@ -34,14 +36,18 @@ function DatasPage() {
       if (!token) {
         throw new Error("Вы не авторизованы");
       }
-  
-      await axios.put(`http://localhost:3001/datas/${data._id}`, formData, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
+
+      await axios.put(
+        `https://omex-backend-production.up.railway.app/datas/${data._id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
       alert("Данные обновлены!");
       fetchData();
     } catch (error) {
@@ -49,7 +55,6 @@ function DatasPage() {
       alert("Ошибка при обновлении данных: " + error.message);
     }
   };
-  
 
   const handleFileUpload = async (event, field) => {
     const file = event.target.files[0];
@@ -107,7 +112,7 @@ function DatasPage() {
             {data.tokenomics_link && (
               <p>
                 <a
-                  href={data.tokenomics_link}
+                  href={`https://omex-backend-production.up.railway.app${data.tokenomics_link}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -128,7 +133,7 @@ function DatasPage() {
             {data.whitepaper_link && (
               <p>
                 <a
-                  href={data.whitepaper_link}
+                  href={`https://omex-backend-production.up.railway.app${data.whitepaper_link}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

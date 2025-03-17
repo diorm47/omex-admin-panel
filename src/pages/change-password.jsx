@@ -12,13 +12,13 @@ const ChangePassword = () => {
     setSuccess("");
 
     if (newPassword !== confirmPassword) {
-      setError("Новый пароль и подтверждение не совпадают");
+      setError("New password and confirmation do not match");
       return;
     }
 
     try {
       const token = sessionStorage.getItem("token");
-      if (!token) throw new Error("Вы не авторизованы");
+      if (!token) throw new Error("You are not logged in");
 
       const response = await fetch(
         "https://omex-backend-production.up.railway.app/update-password",
@@ -35,10 +35,10 @@ const ChangePassword = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Ошибка при смене пароля");
+        throw new Error(data.error || "Error when changing password");
       }
 
-      setSuccess("Пароль успешно изменен!");
+      setSuccess("Password changed successfully!");
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
@@ -52,7 +52,7 @@ const ChangePassword = () => {
       <h2>Change password</h2>
 
       <div className="input_item">
-        <p>Старый пароль</p>
+        <p>Old Password</p>
         <input
           type="text"
           value={oldPassword}
@@ -61,7 +61,7 @@ const ChangePassword = () => {
       </div>
 
       <div className="input_item">
-        <p>Новый пароль</p>
+        <p>New Password</p>
         <input
           type="text"
           value={newPassword}
@@ -70,7 +70,7 @@ const ChangePassword = () => {
       </div>
 
       <div className="input_item">
-        <p>Подтвердите новый пароль</p>
+        <p>Confirm your new password</p>
         <input
           type="text"
           value={confirmPassword}
@@ -82,7 +82,7 @@ const ChangePassword = () => {
       {success && <p className="success">{success}</p>}
 
       <button onClick={handleChangePassword} className="submit_btn">
-        Обновить пароль
+        Update password
       </button>
     </div>
   );

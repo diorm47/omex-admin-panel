@@ -12,9 +12,9 @@ const AdminPanel = () => {
   return (
     <Router>
       <div className="page_wrapper container">
-        <NavBar />
+        {isAuth && <NavBar />}
 
-        <div className="pages_content ">
+        <main className="pages_content">
           {isAuth ? (
             <Routes>
               <Route path="/" element={<DatasPage />} />
@@ -24,7 +24,7 @@ const AdminPanel = () => {
           ) : (
             <LoginPage />
           )}
-        </div>
+        </main>
       </div>
     </Router>
   );

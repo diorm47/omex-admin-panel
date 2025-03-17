@@ -23,7 +23,7 @@ const LoginPage = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Ошибка авторизации");
+        throw new Error(data.error || "Authorization error");
       }
 
       sessionStorage.setItem("token", data.token);
@@ -37,7 +37,7 @@ const LoginPage = () => {
   return (
     <div className="login_form">
       <div className="input_item">
-        <p>Логин</p>
+        <p>Login</p>
         <input
           type="text"
           value={username}
@@ -45,7 +45,7 @@ const LoginPage = () => {
         />
       </div>
       <div className="input_item">
-        <p>Пароль</p>
+        <p>Password</p>
         <input
           type="password"
           value={password}
@@ -54,7 +54,7 @@ const LoginPage = () => {
       </div>
       {error && <p className="error">{error}</p>}
       <button onClick={handleLogin} className="submit_btn">
-        Войти
+      Login
       </button>
     </div>
   );

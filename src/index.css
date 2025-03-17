@@ -194,3 +194,51 @@ body {
   color: #fff;
   margin-bottom: 20px;
 }
+.page_wrapper {
+  padding-bottom: 40px;
+}
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .diagramm_inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .datas_3_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .diagramm_inputs,
+  .datas_3_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .input_item {
+    padding: 20px 10px;
+    border-radius: 10px;
+  }
+  .input_item textarea {
+    height: 100px;
+  }
+  .datas_3_grid .input_item {
+    margin: 0;
+  }
+  .page_title h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .submit_btn {
+    width: 100%;
+  }
+}

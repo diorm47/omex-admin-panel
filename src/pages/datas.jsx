@@ -80,14 +80,13 @@ function DatasPage() {
   };
 
   const tokens = {
-    team: "Team",
-    staking: "Staking&Revards",
-    liquidity: "Liquidity",
-    partnerships: "Partnerships & Cooperation",
-    marketing: "Marketing & Communit",
-    airdrop: "Airdrop",
-    presale: "Pre-Sale",
+    community: "Community Rewards",
     ecosystem: "Ecosystem Fund",
+    team: "Team",
+    advisors: "Advisors",
+    seed: "Seed & Private Investors",
+    ido: "IDO",
+    liquidity: "Liquidity",
   };
 
   return (

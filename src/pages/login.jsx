@@ -10,7 +10,7 @@ const LoginPage = () => {
 
     try {
       const response = await fetch(
-        "https://omex-backend-production.up.railway.app/login",
+        "https://api-omex.omexeth.io/login",
         {
           method: "POST",
           headers: {

@@ -21,7 +21,7 @@ const ChangePassword = () => {
       if (!token) throw new Error("You are not logged in");
 
       const response = await fetch(
-        "https://omex-backend-production.up.railway.app/update-password",
+        "https://api-omex.omexeth.io/update-password",
         {
           method: "PUT",
           headers: {

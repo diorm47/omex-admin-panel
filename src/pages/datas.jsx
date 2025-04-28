@@ -13,7 +13,7 @@ function DatasPage() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "https://omex-backend-production.up.railway.app/datas"
+        "https://api-omex.omexeth.io/datas"
       );
       if (response.data.length > 0) {
         const fetchedData = response.data[0];
@@ -38,7 +38,7 @@ function DatasPage() {
       }
 
       await axios.put(
-        `https://omex-backend-production.up.railway.app/datas/${data._id}`,
+        `https://api-omex.omexeth.io/datas/${data._id}`,
         formData,
         {
           headers: {
@@ -115,7 +115,7 @@ function DatasPage() {
               {data.tokenomics_link && (
                 <p>
                   <a
-                    href={`https://omex-backend-production.up.railway.app${data.tokenomics_link}`}
+                    href={`https://api-omex.omexeth.io${data.tokenomics_link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -136,7 +136,7 @@ function DatasPage() {
               {data.whitepaper_link && (
                 <p>
                   <a
-                    href={`https://omex-backend-production.up.railway.app${data.whitepaper_link}`}
+                    href={`https://api-omex.omexeth.io${data.whitepaper_link}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

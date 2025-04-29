@@ -198,6 +198,16 @@ body {
 .page_wrapper {
   padding-bottom: 40px;
 }
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background: #0000007b;
+}
+
 @media only screen and (max-width: 1200px) {
   .container {
     padding-left: 20px;

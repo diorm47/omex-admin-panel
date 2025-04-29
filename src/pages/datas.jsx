@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 function DatasPage() {
   const { register, handleSubmit, setValue, reset } = useForm();
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -12,9 +13,7 @@ function DatasPage() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        "https://api-omex.omexeth.io/datas"
-      );
+      const response = await axios.get("https://api-omex.omexeth.io/datas");
       if (response.data.length > 0) {
         const fetchedData = response.data[0];
         setData(fetchedData);
@@ -62,7 +61,7 @@ function DatasPage() {
 
     const formData = new FormData();
     formData.append("file", file);
-
+    setLoading(true)
     try {
       const response = await axios.post(
         "https://api-omex.omexeth.io/file",
@@ -74,8 +73,10 @@ function DatasPage() {
 
       const fileUrl = response.data.url;
       setValue(field, fileUrl);
+      setLoading(false)
     } catch (error) {
       console.error("Ошибка при загрузке файла:", error);
+      setLoading(false)
     }
   };
 
@@ -177,6 +178,7 @@ function DatasPage() {
       ) : (
         <p className="loading">Loading data...</p>
       )}
+      {loading ? <div className="loading"></div> : ""}
     </div>
   );
 }

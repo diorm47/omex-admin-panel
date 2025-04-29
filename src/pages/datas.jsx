@@ -65,7 +65,7 @@ function DatasPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/file",
+        "https://api-omex.omexeth.io/file",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

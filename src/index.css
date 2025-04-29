@@ -67,6 +67,7 @@ body {
 .input_item input[type="file"] {
   color: #fff;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 .input_item a {
